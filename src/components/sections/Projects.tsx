@@ -30,7 +30,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
               alt={project.name}
               aria-label={project.name}
               width={400}
-              height={200}
+              height={400}
               className="w-full h-48 object-cover"
               loading="lazy"
             />
@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
                     <a
                       href={project.github}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      aria-label="Link to GitHub"
                     >
                       <GithubIcon className="h-4 w-4" />
                     </a>

@@ -12,6 +12,8 @@ export const Xicon = () => (
     xmlns="http://www.w3.org/2000/svg"
     width="15"
     height="15"
+    role="img"
+    aria-label="X"
   >
     <title>X</title>
     <path
@@ -37,13 +39,9 @@ export const personalData = {
     "Electron.js",
     "Firebase",
     "SQL",
-    "PostgreSQL",
-    "MongoDB",
     "JavaScript",
     "TypeScript",
     "Python",
-    "Framer Motion",
-    "Git",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -85,30 +83,27 @@ export const personalData = {
       company: "Banco Ripley",
       date: "oct. 2024 - actualidad",
       location: "Las Condes, Región Metropolitana de Santiago, Chile",
-      description: `
-      Programación de procesos ETL y BI utilizando SQL Server, Power BI y Python.`,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZHct7ieoxTNFAU0-rzE6XoMcLVVAy_hTYRg&s",
+      description:
+        "Desarrollé procesos de Extracción, Transformación y Carga (ETL) y Business Intelligence (BI) utilizando SQL Server, Power BI y Python. Esta experiencia me ha permitido optimizar la gestión de datos y generar informes analíticos que respaldan la toma de decisiones estratégicas. A través de estas herramientas, he implementado soluciones eficientes que integran diversas fuentes de información, garantizando la calidad y la precisión en el análisis de datos.",
+      image: "/banco-ripley.webp",
     },
     {
       title: "Desarrollador de software",
       company: "Underfire Services",
       date: "ene. 2024 - mar. 2024",
       location: "Pudahuel, Región Metropolitana de Santiago, Chile",
-      description: `
-        Lideré el desarrollo de una aplicación para automatizar procesos técnicos utilizando Electron.js y Firebase. Implementé la metodología Scrum dividiendo el proyecto en 5 sprints semanales. La aplicación permite extraer datos de PDF desde ERP SAP y transferirlos a una hoja de cálculo Excel.`,
-      image:
-        "https://www.underfire.com/wp-content/uploads/cropped-Underfire_Logo_RGB_WhiteBackground.png",
+      description:
+        "Lideré el desarrollo de una aplicación para la automatización de procesos técnicos, utilizando Electron.js y Firebase. Implementé la metodología Scrum, estructurando el proyecto en cinco sprints semanales que facilitaron una gestión ágil y eficiente. Esta aplicación permite la extracción de datos de archivos PDF desde el ERP SAP y su transferencia a hojas de cálculo de Excel, mejorando significativamente la productividad del equipo y reduciendo los tiempos de procesamiento manual de información.",
+      image: "/underfire-logo.webp",
     },
     {
       title: "Practica Laboral",
       company: "COMULSA",
       date: "dic. 2023 - ene. 2024",
       location: "Pudahuel, Región Metropolitana de Santiago, Chile",
-      description: `
-        Soporte técnico, implementación de medidas de seguridad, gestión de inventario informático, monitoreo avanzado de impresoras y redes mediante UniFi.`,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHd6dMSNuqgfkanY59QDaqU2oywADEQBZTpQ&s",
+      description:
+        "Proporcioné soporte técnico integral y gestioné la implementación de medidas de seguridad para salvaguardar la infraestructura tecnológica de la organización. Además, me ocupé de la gestión del inventario informático y realicé un monitoreo avanzado de impresoras y redes mediante la plataforma UniFi. Este enfoque proactivo ha asegurado un funcionamiento óptimo de los sistemas, minimizando interrupciones y mejorando la eficiencia operativa.",
+      image: "/comulsa-logo.webp",
     },
   ],
   education: [
@@ -117,8 +112,7 @@ export const personalData = {
       school: "Universidad Andrés Bello",
       date: "mar. 2021 - dic. 2024",
       location: "Chile",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZL3oepSCI9EaVKFcSIKZGlM574i8AvkdbWgnMXBM6bfwypjBVSQ-ejVTDM0VqQHeoqqw&usqp=CAU",
+      image: "/unab-logo.webp",
     },
   ],
   projects: [

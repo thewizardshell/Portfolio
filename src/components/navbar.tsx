@@ -64,7 +64,11 @@ export default function Navbar() {
                         "size-12",
                       )}
                     >
-                      <social.icon className="size-4" />
+                      <social.icon
+                        className="size-4"
+                        role="img"
+                        aria-label={name}
+                      />
                     </Link>
                   </TooltipTrigger>
                   <TooltipContent>
