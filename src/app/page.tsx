@@ -4,7 +4,6 @@ import { RetroGridDemo } from "@/components/RetroGridDemo";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "lucide-react";
-import { Link as LinkIcon } from "lucide-react"; // Cambié el nombre del import para evitar confusiones
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { personalData } from "@/data/personal-data";

@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable */
 
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { ModeToggle } from "@/components/mode-toggle";

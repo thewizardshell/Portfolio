@@ -3,7 +3,6 @@ import {
   FileText,
   GithubIcon,
   LinkedinIcon,
-  TwitterIcon,
   YoutubeIcon,
 } from "lucide-react";
 
