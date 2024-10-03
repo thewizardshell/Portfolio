@@ -1,5 +1,4 @@
 "use client";
-// components/Education.tsx
 import React from "react";
 import Image from "next/image";
 import BlurFade from "../ui/blur-fade";
@@ -26,9 +25,11 @@ const Education: React.FC<EducationProps> = ({ education }) => (
               <Image
                 src={edu.image}
                 alt={`${edu.school} logo`}
+                aria-label="School logo"
                 width={62}
                 height={62}
                 className="rounded-full"
+                loading="lazy"
               />
             )}
             <h3 className="text-xl font-semibold">{edu.degree}</h3>

@@ -31,9 +31,11 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({ workExperience }) => (
                 <Image
                   src={job.image}
                   alt={`${job.company} logo`}
+                  aria-label="Company logo"
                   width={44}
                   height={44}
                   className="rounded-full"
+                  loading="lazy"
                 />
               )}
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

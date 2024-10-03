@@ -28,9 +28,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
             <Image
               src={project.image || "/placeholder.svg?height=200&width=400"}
               alt={project.name}
+              aria-label={project.name}
               width={400}
               height={200}
               className="w-full h-48 object-cover"
+              loading="lazy"
             />
             <CardHeader>
               <CardTitle className="flex justify-between items-center">
