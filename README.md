@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
 
-## Getting Started
+![Banner](https://github.com/user-attachments/assets/4d89a86f-410e-4d0c-b0a2-930781e5927a)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-MIT-blue) ![Version](https://img.shields.io/badge/version-1.0.0-orange)
 
-First, run the development server:
+## Description
+Welcome to my web portfolio, showcasing my projects and skills in web development. This portfolio is built using modern technologies and industry best practices to provide a seamless user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **JavaScript Framework**: React
+- **Web Framework**: Next.js 14.2.14
+- **Typography**: Lucide
+- **Miscellaneous**: Webpack, Module Federation
+- **Web Server**: Next.js 14.2.14
+- **Static Site Generator**: Next.js 14.2.14
+- **PaaS**: Vercel
+- **UI Frameworks**: Radix UI, Tailwind CSS, shadcn/ui
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Badges
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Badge Type         | Badge                                                                                  |
+|--------------------|----------------------------------------------------------------------------------------|
+| Build Status       | ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)            |
+| License            | ![License](https://img.shields.io/badge/license-MIT-blue)                          |
+| Version            | ![Version](https://img.shields.io/badge/version-1.0.0-orange)                      |
+| React              | ![React](https://img.shields.io/badge/React-v17.0.2-blue)                          |
+| Next.js            | ![Next.js](https://img.shields.io/badge/Next.js-v14.2.14-blue)                     |
+| Vercel             | ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-brightgreen)             |
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Get In Touch
+Feel free to reach out if you have any questions or feedback. You can find me on [LinkedIn](https://www.linkedin.com/in/vctroa/) 
