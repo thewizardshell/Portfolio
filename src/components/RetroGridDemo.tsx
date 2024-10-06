@@ -14,10 +14,10 @@ export function RetroGridDemo() {
         <Image
           src="/me-logo.webp"
           alt="Vicente Roa"
-          loading="lazy"
+          priority
           width={200}
           height={200}
-          className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-white/10 bg-background/90 backdrop-blur-lg"
+          className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-white/10 bg-background/90"
         />
         <div className="flex flex-col text-center sm:text-left">
           <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black via-black to-[#8c1eff] bg-clip-text text-3xl sm:text-4xl md:text-5xl font-bold leading-none tracking-tighter text-transparent dark:from-white dark:via-white dark:to-[#8c1aff]">
