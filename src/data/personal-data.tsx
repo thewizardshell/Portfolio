@@ -84,8 +84,17 @@ export const personalData = {
       date: "oct. 2024 - actualidad",
       location: "Las Condes, Región Metropolitana de Santiago, Chile",
       description:
-        "Desarrollé procesos de Extracción, Transformación y Carga (ETL) y Business Intelligence (BI) utilizando SQL Server, Power BI y Python. Esta experiencia me ha permitido optimizar la gestión de datos y generar informes analíticos que respaldan la toma de decisiones estratégicas. A través de estas herramientas, he implementado soluciones eficientes que integran diversas fuentes de información, garantizando la calidad y la precisión en el análisis de datos.",
+        "Actualmente me desempeño como ingeniero de datos en mi práctica profesional, donde utilizo DBeaver y AWS Redshift para migrar datos desde SQL Server a Redshift. También trabajo con Python y Pandas en un entorno Anaconda para procesar y analizar datos, asegurando una migración eficiente y precisa. Esta experiencia me ha permitido desarrollar habilidades en la gestión de datos y en la integración de diferentes tecnologías para optimizar procesos analíticos",
       image: "/banco-ripley.webp",
+    },
+    {
+      title: "Desarrollador full stack y Fundador",
+      company: "Astral Sites",
+      date: "ene. 2024 - actualidad",
+      location: "Santiago, Chile",
+      description:
+        "Fundador de Astral Sites, un mini emprendimiento enfocado en el desarrollo web y soluciones digitales escalables. Trabajo junto a un desarrollador full stack en proyectos personalizados, utilizando tecnologías modernas como Next y NestJS, aplicando principios de arquitectura limpia y herramientas como Supabase. Nuestro enfoque se centra en brindar soluciones creativas y funcionales para nuestros clientes, asegurando calidad y eficiencia.",
+      image: "/astral-sites.webp",
     },
     {
       title: "Desarrollador de software",
@@ -123,8 +132,7 @@ export const personalData = {
         Proyecto de título enfocado en la gestión de citas médicas con IA. DoctorChat permite a los pacientes describir sus síntomas a través de un chatbot y recibir recomendaciones sobre el especialista médico adecuado.`,
       github: "https://github.com/vicenteroa/doctorchat",
       link: "https://doctor-chat-two.vercel.app/",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4E2DAQEvfquzRiLylw/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1720560049018?e=1728536400&v=beta&t=8oURuosw3mveWHd7E6yZJXnRDvl9osZEE831A5fRzu8",
+      image: "/doctorchat_port.webp",
     },
     {
       name: "CardioCare IA",
@@ -133,8 +141,7 @@ export const personalData = {
         "una página web diseñada para ofrecer una experiencia fácil de usar y accesible para todos los usuarios. La plataforma permitirá a las personas ingresar sus datos médicos y de estilo de vida, que serán analizados mediante algoritmos avanzados de análisis de datos y aprendizaje automático. Esta evaluación de riesgos personalizada no solo proporcionará recomendaciones médicas específicas para cada usuario, sino que también permitirá la comunicación directa con profesionales de la salud cuando sea necesario. ",
       github: "https://github.com/vicenteroa/CardioCare-IA",
       link: "https://cardio-care-ia.vercel.app/",
-      image:
-        "https://media.licdn.com/dms/image/sync/v2/D4E27AQGuh5vvoCMxyQ/articleshare-shrink_800/articleshare-shrink_800/0/1727830725917?e=1728536400&v=beta&t=iIXbuYOTDlxQwq_u29gJN-VPYA20InkBeEUkes9ySRc",
+      image: "/cardiocare_port.webp",
     },
   ],
 };
