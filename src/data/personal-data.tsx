@@ -88,7 +88,7 @@ export const personalData = {
       image: "/banco-ripley.webp",
     },
     {
-      title: "Desarrollador full stack y Fundador",
+      title: "Founder & CTO (Chief Technology Officer)",
       company: "Astral Sites",
       date: "ene. 2024 - actualidad",
       location: "Santiago, Chile",
@@ -131,7 +131,7 @@ export const personalData = {
       description: `
         Proyecto de título enfocado en la gestión de citas médicas con IA. DoctorChat permite a los pacientes describir sus síntomas a través de un chatbot y recibir recomendaciones sobre el especialista médico adecuado.`,
       github: "https://github.com/vicenteroa/doctorchat",
-      link: "https://doctor-chat-two.vercel.app/",
+      link: "https://github.com/vicenteroa/DoctorChat",
       image: "/doctorchat_port.webp",
     },
     {
@@ -140,7 +140,7 @@ export const personalData = {
       description:
         "una página web diseñada para ofrecer una experiencia fácil de usar y accesible para todos los usuarios. La plataforma permitirá a las personas ingresar sus datos médicos y de estilo de vida, que serán analizados mediante algoritmos avanzados de análisis de datos y aprendizaje automático. Esta evaluación de riesgos personalizada no solo proporcionará recomendaciones médicas específicas para cada usuario, sino que también permitirá la comunicación directa con profesionales de la salud cuando sea necesario. ",
       github: "https://github.com/vicenteroa/CardioCare-IA",
-      link: "https://cardio-care-ia.vercel.app/",
+      link: "https://github.com/vicenteroa/CardioCare-IA",
       image: "/cardiocare_port.webp",
     },
   ],
