@@ -8,7 +8,24 @@ const onest = Onest({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vicente Roa | Full Stack Developer",
-  description: "Vicente Roa's personal website",
+  description:
+    "vctroa | Vicente Roa's personal website and portfolio showcasing Full Stack Development",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    url: "https://vctroa.cl/vctora_wp.jpg",
+    images: [
+      {
+        url: "/vctora_wp.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vicente Roa | Full Stack Developer",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
