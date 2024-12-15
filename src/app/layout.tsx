@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://vctroa.cl/vctroa_wp.jpg",
     images: [
       {
-        url: "/vctora_wp.jpg",
+        url: "/vctroa_wp.jpg",
         width: 1200,
         height: 630,
         alt: "Vicente Roa | Full Stack Developer",
