@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://vctroa.cl/vctora_wp.jpg",
+    url: "https://vctroa.cl/vctroa_wp.jpg",
     images: [
       {
         url: "/vctora_wp.jpg",
