@@ -88,12 +88,12 @@ export const personalData = {
       image: "/banco-ripley.webp",
     },
     {
-      title: "Founder & CTO (Chief Technology Officer)",
-      company: "Astral Sites",
+      title: "Freelance Software Engineer",
+      company: "Azetheral Technology",
       date: "ene. 2024 - actualidad",
       location: "Santiago, Chile",
       description:
-        "Fundador de Astral Sites, un mini emprendimiento enfocado en el desarrollo web y soluciones digitales escalables. Trabajo junto a un desarrollador full stack en proyectos personalizados, utilizando tecnologías modernas como Next y NestJS, aplicando principios de arquitectura limpia y herramientas como Supabase. Nuestro enfoque se centra en brindar soluciones creativas y funcionales para nuestros clientes, asegurando calidad y eficiencia.",
+        "Un mini emprendimiento enfocado en el desarrollo web y soluciones digitales escalables. Trabajo junto a un desarrollador full stack en proyectos personalizados, utilizando tecnologías modernas como Next y NestJS, aplicando principios de arquitectura limpia y herramientas como Supabase. Nuestro enfoque se centra en brindar soluciones creativas y funcionales para nuestros clientes, asegurando calidad y eficiencia.",
       image: "/astral-sites.webp",
     },
     {
