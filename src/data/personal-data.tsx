@@ -81,10 +81,10 @@ export const personalData = {
     {
       title: "Practica Profesional",
       company: "Banco Ripley",
-      date: "oct. 2024 - actualidad",
+      date: "oct. 2024 - mar. 2025",
       location: "Las Condes, Región Metropolitana de Santiago, Chile",
       description:
-        "Actualmente me desempeño como ingeniero de datos en mi práctica profesional, donde utilizo DBeaver y AWS Redshift para migrar datos desde SQL Server a Redshift. También trabajo con Python y Pandas en un entorno Anaconda para procesar y analizar datos, asegurando una migración eficiente y precisa. Esta experiencia me ha permitido desarrollar habilidades en la gestión de datos y en la integración de diferentes tecnologías para optimizar procesos analíticos",
+        "Me desempeñé como ingeniero de datos en mi práctica profesional, donde utilicé DBeaver y AWS Redshift para migrar datos desde SQL Server a Redshift. También trabaje con Python y Pandas en un entorno Anaconda para procesar y analizar datos, asegurando una migración eficiente y precisa. Esta experiencia me ha permitido desarrollar habilidades en la gestión de datos y en la integración de diferentes tecnologías para optimizar procesos analíticos",
       image: "/banco-ripley.webp",
     },
     {
@@ -127,7 +127,7 @@ export const personalData = {
   projects: [
     {
       name: "DoctorChat",
-      date: "mar. 2024 - actualidad",
+      date: "mar. 2024 - dic.2024",
       description: `
         Proyecto de título enfocado en la gestión de citas médicas con IA. DoctorChat permite a los pacientes describir sus síntomas a través de un chatbot y recibir recomendaciones sobre el especialista médico adecuado.`,
       github: "https://github.com/vicenteroa/doctorchat",
