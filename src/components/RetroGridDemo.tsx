@@ -59,11 +59,25 @@ export function RetroGridDemo() {
         </div>
 
         <div className="flex flex-col text-center max-w-xl px-4">
-          <h1 className="pointer-events-none bg-gradient-to-r from-primary via-white to-secondary bg-clip-text text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-transparent mb-4">
+          <h1
+            className="pointer-events-none bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-transparent mb-4"
+            style={{
+              // Fallback text color for better contrast in light mode
+              WebkitTextFillColor: "transparent",
+              color: "rgba(0, 0, 0, 0.9)", // Darker fallback for light mode
+            }}
+          >
             {personalData.name}
           </h1>
 
-          <p className="text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-white/90 to-white/70 text-transparent">
+          <p
+            className="text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-400 text-transparent"
+            style={{
+              // Fallback for better readability in light mode
+              WebkitTextFillColor: "transparent",
+              color: "rgba(0, 0, 0, 0.8)", // Darker fallback for light mode
+            }}
+          >
             {personalData.holder}
           </p>
         </div>
@@ -75,8 +89,8 @@ export function RetroGridDemo() {
           scrolled ? "opacity-0" : "opacity-80"
         }`}
       >
-        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
-          <div className="w-1 h-3 bg-white/70 rounded-full animate-bounce mt-1"></div>
+        <div className="w-8 h-12 rounded-full border-2 border-gray-400 flex items-start justify-center p-1">
+          <div className="w-1 h-3 bg-gray-600 rounded-full animate-bounce mt-1"></div>
         </div>
       </div>
     </div>
