@@ -27,9 +27,9 @@ export const personalData = {
   name: "Vicente Roa",
   initals: "VR",
   location: "Chile",
-  holder: "Full Stack Developer | AI Application",
+  holder: "Desarrollador de Software",
   about:
-    "Soy Vicente Roa, un desarrollador Full Stack de 21 años, apasionado por la tecnología y el aprendizaje constante. Me he caracterizado por integrar soluciones innovadoras basadas en inteligencia artificial en los proyectos en los que trabajo, buscando siempre cómo mejorar la experiencia del usuario y optimizar procesos empresariales. Mi enfoque está en desarrollar aplicaciones que no solo resuelvan problemas, sino que lleven la eficiencia al siguiente nivel. Creo firmemente en la importancia de la colaboración y en el uso de metodologías ágiles como Scrum para transformar ideas en realidades de manera efectiva.",
+    "Soy Vicente Roa, un desarrollador de software de 22 años, con experiencia en la construcción de aplicaciones web eficientes y escalables. Mi enfoque principal se centra en la creación de interfaces de usuario dinámicas con React y NextJS, y el desarrollo de APIs robustas utilizando NestJS. Además de mi experiencia en el ciclo completo del desarrollo, esto me ha permitido generar propuestas de mejoras e identificar oportunidades de optimización en los proyectos. Mi paso por la ingeniería de datos me ha proporcionado una perspectiva analítica valiosa para abordar los desafíos técnicos y optimizar el rendimiento de las soluciones que desarrollo",
   avatarUrl: "/images/avatar.png",
   skills: [
     "React.js",
@@ -56,7 +56,7 @@ export const personalData = {
     phone: "+569 77272779",
     social: {
       Github: {
-        href: "https://github.com/vicenteroa",
+        href: "https://github.com/thewizardshell",
         icon: GithubIcon,
         navbar: true,
       },
@@ -78,6 +78,15 @@ export const personalData = {
     },
   },
   workExperience: [
+    {
+      title: "Desarrollador de Software",
+      company: "Romero & Asociados",
+      date: "abr. 2025 - actualidad",
+      location: "Las Condes, Región Metropolitana de Santiago, Chile",
+      description:
+        "Participación en el desarrollo de soluciones empresariales utilizando NestJS para construir APIs REST robustas y React para interfaces web modernas. Implementación de pruebas unitarias e integración para garantizar la calidad del software. Colaboración activa en todo el ciclo de vida del desarrollo (desde requerimientos hasta pruebas), siguiendo metodologías ágiles Scrum en Jira. También he participado en la migración de tecnologías legadas hacia stacks modernos y en la gestión de dependencias y seguridad en entornos Node.js.",
+      image: "/romero.jpg",
+    },
     {
       title: "Practica Profesional",
       company: "Banco Ripley",
