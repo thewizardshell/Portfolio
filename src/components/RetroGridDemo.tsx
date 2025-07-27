@@ -24,23 +24,6 @@ export function RetroGridDemo() {
     <div className="relative flex min-h-[400px] md:h-[600px] w-full items-center justify-center overflow-hidden bg-background">
       <RetroGrid />
 
-      {/* Partículas decorativas */}
-      <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-primary animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.7 + 0.3,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${Math.random() * 5 + 2}s`,
-            }}
-          />
-        ))}
-      </div>
-
       <div
         className={`z-10 flex flex-col items-center transition-all duration-700 ease-out ${
           scrolled ? "opacity-90 transform -translate-y-4" : "opacity-100"
@@ -60,23 +43,13 @@ export function RetroGridDemo() {
 
         <div className="flex flex-col text-center max-w-xl px-4">
           <h1
-            className="pointer-events-none bg-gradient-to-r from-primary to-secondary bg-clip-text text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-transparent mb-4"
-            style={{
-              // Fallback text color for better contrast in light mode
-              WebkitTextFillColor: "transparent",
-              color: "rgba(0, 0, 0, 0.9)", // Darker fallback for light mode
-            }}
+            className="text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-neutral-900 dark:text-neutral-100 mb-4"
           >
             {personalData.name}
           </h1>
 
           <p
-            className="text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-gray-800 via-gray-600 to-gray-400 text-transparent"
-            style={{
-              // Fallback for better readability in light mode
-              WebkitTextFillColor: "transparent",
-              color: "rgba(0, 0, 0, 0.8)", // Darker fallback for light mode
-            }}
+            className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300"
           >
             {personalData.holder}
           </p>

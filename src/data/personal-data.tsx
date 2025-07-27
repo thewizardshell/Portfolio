@@ -29,18 +29,20 @@ export const personalData = {
   location: "Chile",
   holder: "Desarrollador de Software",
   about:
-    "Soy Vicente Roa, un desarrollador de software de 22 años, con experiencia en la construcción de aplicaciones web eficientes y escalables. Mi enfoque principal se centra en la creación de interfaces de usuario dinámicas con React y NextJS, y el desarrollo de APIs robustas utilizando NestJS. Además de mi experiencia en el ciclo completo del desarrollo, esto me ha permitido generar propuestas de mejoras e identificar oportunidades de optimización en los proyectos. Mi paso por la ingeniería de datos me ha proporcionado una perspectiva analítica valiosa para abordar los desafíos técnicos y optimizar el rendimiento de las soluciones que desarrollo",
+    "Desarrollador de software chileno con experiencia en aplicaciones web modernas, APIs robustas y soluciones escalables. Especialista en React, NextJS y NestJS, enfocado en arquitectura limpia, buenas prácticas y productividad. Líder de proyectos open source como Froggit (+230 ⭐ en GitHub), colaborador en equipos multidisciplinarios y con experiencia en proyectos freelance para clientes de distintos rubros. Apasionado por la innovación, la automatización y la creación de sistemas eficientes y fáciles de mantener. Comprometido con la calidad, el aprendizaje continuo y el desarrollo de soluciones digitales que generan impacto real.",
   avatarUrl: "/images/avatar.png",
   skills: [
     "React.js",
     "Next.js",
     "Nest.js",
     "Node.js",
-    "Electron.js",
+    "AWS",
+    "Supabase",
     "Firebase",
-    "SQL",
+    "PostgreSQL",
     "JavaScript",
     "TypeScript",
+    "Go",
     "Python",
   ],
   navbar: [
@@ -52,7 +54,7 @@ export const personalData = {
     },
   ],
   contact: {
-    email: "vicenteroa03@gmail.com",
+    email: "vsroac@gmail.com",
     phone: "+569 77272779",
     social: {
       Github: {
@@ -134,6 +136,31 @@ export const personalData = {
     },
   ],
   projects: [
+    {
+      name: "Froggit",
+      date: "Jun 2025 - Actualidad",
+      description: `Froggit es una interfaz de Git para terminal con más de 230 ⭐ en GitHub. Simplifica el control de versiones con navegación por teclado, gestión visual de archivos y funciones avanzadas como logs gráficos, merge y rebase interactivo. Integra opcionalmente GitHub CLI y está pensada tanto para quienes aprenden Git como para desarrolladores que buscan eficiencia diaria desde la terminal.`,
+      github: "thewizardshell/froggit",
+      link: "https://froggit-docs.vercel.app/",
+      image: "/froggit_port.webp",
+    },
+    {
+      name: "Mascotag",
+      date: "Mar 2025 - Actualidad",
+      description: `
+      Mascotag es una aplicación web que permite a los usuarios registrar y gestionar mascotas perdidas o encontradas. La plataforma facilita la búsqueda de mascotas mediante placas NFC, tipo de animal y estado de salud.`,
+      link: "https://mascotag.cl",
+      github: "https://github.com/mascotag",
+      image: "/mascotag_port.webp",
+    },
+    {
+      name: "Capalabs",
+      date: "Jul. 2025 - agost 2025",
+      description: ` Capalabs es una empresa chilena que se enfoca en soluciones de impresion 3D y llaveros para empresas. En este proyecto, desarrollé una aplicación web que permite a los usuarios personalizar y cotizar llaveros de forma sencilla y rápida. La plataforma incluye una interfaz intuitiva para una experiencia de usuario óptima.`,
+      link: "https://capalabs.cl",
+      github: "",
+      image: "/capalabs_port.webp",
+    },
     {
       name: "DoctorChat",
       date: "mar. 2024 - dic.2024",

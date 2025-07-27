@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { RetroGridDemo } from "@/components/RetroGridDemo";
 import { personalData } from "@/data/personal-data";
+import Contact from "@/components/sections/Contact";
 
 // Importaciones dinámicas
 const AboutMe = dynamic(() => import("@/components/sections/AboutMe"), {
@@ -37,6 +38,7 @@ const Home = () => {
         <WorkExperience workExperience={personalData.workExperience} />
         <Education education={personalData.education} />
         <Projects projects={personalData.projects} />
+        <Contact /> 
       </main>
     </div>
   );
