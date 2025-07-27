@@ -140,7 +140,7 @@ export const personalData = {
       name: "Froggit",
       date: "Jun 2025 - Actualidad",
       description: `Froggit es una interfaz de Git para terminal con más de 230 ⭐ en GitHub. Simplifica el control de versiones con navegación por teclado, gestión visual de archivos y funciones avanzadas como logs gráficos, merge y rebase interactivo. Integra opcionalmente GitHub CLI y está pensada tanto para quienes aprenden Git como para desarrolladores que buscan eficiencia diaria desde la terminal.`,
-      github: "thewizardshell/froggit",
+      github: "https://github.com/thewizardshell/froggit",
       link: "https://froggit-docs.vercel.app/",
       image: "/froggit_port.webp",
     },
@@ -150,7 +150,6 @@ export const personalData = {
       description: `
       Mascotag es una aplicación web que permite a los usuarios registrar y gestionar mascotas perdidas o encontradas. La plataforma facilita la búsqueda de mascotas mediante placas NFC, tipo de animal y estado de salud.`,
       link: "https://mascotag.cl",
-      github: "https://github.com/mascotag",
       image: "/mascotag_port.webp",
     },
     {

@@ -33,9 +33,9 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-12 px-4 flex flex-col items-center bg-transparent border border-gray-700 rounded-2xl shadow-md mt-10 backdrop-blur-md">
-      <h2 className="text-3xl font-bold mb-4 text-center text-white">¿Quieres trabajar conmigo?</h2>
-      <p className="mb-6 text-lg text-gray-300 text-center max-w-xl">
+    <section className="py-12 px-4 flex flex-col items-center bg-white/60 dark:bg-black/60 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-md mt-10 backdrop-blur-md transition-colors">
+      <h2 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-white">¿Quieres trabajar conmigo?</h2>
+      <p className="mb-6 text-lg text-gray-700 dark:text-gray-300 text-center max-w-xl">
         Si buscas servicios web, desarrollo a medida o tienes una idea que quieres llevar a la realidad, ¡contáctame! Completa el formulario y te responderé a la brevedad con una cotización personalizada.
       </p>
       {submitted ? (
@@ -55,21 +55,21 @@ const Contact: React.FC = () => {
             name="nombre"
             required
             placeholder="Nombre"
-            className="px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="email"
             name="email"
             required
             placeholder="Correo electrónico"
-            className="px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <textarea
             name="mensaje"
             required
             placeholder="Cuéntame tu idea, requerimientos o dudas..."
             rows={5}
-            className="px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
