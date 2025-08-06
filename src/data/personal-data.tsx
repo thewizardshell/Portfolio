@@ -161,6 +161,22 @@ export const personalData = {
       image: "/capalabs_port.webp",
     },
     {
+      name: "Tendencia Roller",
+      date: "nov. 2024 - agost. 2025",
+      description: `Tendencia roller es una tienda de cortinas roller , donde los usuarios pueden personalizar y cotizar cortinas de forma sencilla y rápida. La plataforma incluye una interfaz intuitiva para una experiencia de usuario óptima.`,
+      link: "https://www.tendenciaroller.cl/",
+      github: "",
+      image: "/tendencia-roller_port.webp",
+    },
+    {
+      name: "Voluntariado Chile",
+      date: "jun.2025 - agost.2025",
+      description: `Voluntariado Chile es una landing page que conecta a personas interesadas en realizar voluntariado con organizaciones que necesitan apoyo. La plataforma permite a los usuarios registrarse, buscar oportunidades de voluntariado y postularse a proyectos que se alineen con sus intereses y habilidades.`,
+      link: "https://voluntariadochile.cl/",
+      github: "",
+      image: "/voluntariado-chile_port.webp",
+    },
+    {
       name: "DoctorChat",
       date: "mar. 2024 - dic.2024",
       description: `
