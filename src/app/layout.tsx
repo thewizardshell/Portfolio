@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
-import { Onest } from "next/font/google";
+import { Nunito, PT_Serif, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import "./globals.css";
 
-const onest = Onest({ subsets: ["latin"] });
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: "--font-nunito",
+  weight: ["400", "700"],
+});
+
+const ptSerif = PT_Serif({
+  subsets: ["latin"],
+  variable: "--font-pt-serif",
+  weight: ["400", "700"],
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -117,11 +134,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head />
-      <body className={onest.className}>
+      <body className={`${nunito.variable} ${ptSerif.variable} ${playfair.variable} font-sans theme antialiased`}>
+        <div className="texture" />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

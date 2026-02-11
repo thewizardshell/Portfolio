@@ -34,13 +34,11 @@ export const personalData = {
   skills: [
     "React.js",
     "Next.js",
+    "Angular",
     "Nest.js",
-    "Node.js",
     "AWS",
-    "Supabase",
-    "Firebase",
     "PostgreSQL",
-    "JavaScript",
+    "MongoDB",
     "TypeScript",
     "Go",
     "Python",
@@ -86,7 +84,7 @@ export const personalData = {
       date: "abr. 2025 - actualidad",
       location: "Las Condes, Región Metropolitana de Santiago, Chile",
       description:
-        "Participación en el desarrollo de soluciones empresariales utilizando NestJS para construir APIs REST robustas y React para interfaces web modernas. Implementación de pruebas unitarias e integración para garantizar la calidad del software. Colaboración activa en todo el ciclo de vida del desarrollo (desde requerimientos hasta pruebas), siguiendo metodologías ágiles Scrum en Jira. También he participado en la migración de tecnologías legadas hacia stacks modernos y en la gestión de dependencias y seguridad en entornos Node.js.",
+        "Desarrollo de aplicación web interna que automatiza el análisis de procesos legales. La plataforma procesa documentos PDF cargados por abogados, extrayendo información legal mediante AWS Bedrock. Implementé sistema de alertas con Server-Sent Events y validación inteligente de archivos usando Model Context Protocol (MCP) con FastMCP y LangChain. Trabajo con servicios AWS (S3, Textract, Bedrock), APIs REST con NestJS, interfaces React con Redux Toolkit, y metodología Scrum en Jira.",
       image: "/romero.jpg",
     },
     {

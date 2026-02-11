@@ -1,71 +1,119 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useState } from "react";
 import Image from "next/image";
 import { personalData } from "@/data/personal-data";
-import { useEffect, useState } from "react";
-
-const RetroGrid = dynamic(() => import("./ui/retro-grid"), { ssr: false });
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { GithubIcon, LinkedinIcon, Star } from "lucide-react";
+import BlurFade from "@/components/ui/blur-fade";
 
 export function RetroGridDemo() {
-  const [scrolled, setScrolled] = useState(false);
-
-  // Efecto para detectar scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative flex min-h-[400px] md:h-[600px] w-full items-center justify-center overflow-hidden bg-background">
-      <RetroGrid />
+    <section className="min-h-screen flex flex-col justify-center relative">
+      <div className="container mx-auto px-4 md:px-6 py-16">
+        <div className="flex flex-col items-center text-center">
 
-      <div
-        className={`z-10 flex flex-col items-center transition-all duration-700 ease-out ${
-          scrolled ? "opacity-90 transform -translate-y-4" : "opacity-100"
-        }`}
-      >
-        <div className="mb-6 relative">
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-secondary/50 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
-          <Image
-            src="/me-logo.webp"
-            alt="Vicente Roa"
-            priority
-            width={240}
-            height={240}
-            className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-white/20 bg-background/90 relative z-10"
-          />
-        </div>
+          {/* Foto de perfil animada en hover */}
+          <BlurFade delay={0} duration={0.6} yOffset={20}>
+            <div className="relative mb-8">
+              {/* Glow sutil */}
+              <div className="absolute -inset-6 bg-primary/15 rounded-full blur-3xl" />
 
-        <div className="flex flex-col text-center max-w-xl px-4">
-          <h1
-            className="text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-neutral-900 dark:text-neutral-100 mb-4"
-          >
-            {personalData.name}
-          </h1>
+              {/* Container circular */}
+              <div
+                className="relative w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4 border-border shadow-lg cursor-pointer"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                {/* Imagen estática */}
+                <Image
+                  src="/vctroa_icon.png"
+                  alt="Vicente Roa"
+                  priority
+                  fill
+                  className={`object-cover object-center scale-110 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+                />
+                {/* GIF animado */}
+                <Image
+                  src="/vctroa_animation.gif"
+                  alt="Vicente Roa animado"
+                  fill
+                  className={`object-cover object-[center_20%] scale-110 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+                  unoptimized
+                />
+              </div>
+            </div>
+          </BlurFade>
 
-          <p
-            className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300"
-          >
-            {personalData.holder}
-          </p>
+          {/* Badge destacado */}
+          <BlurFade delay={0.15} duration={0.5}>
+            <div className="mb-6">
+              <Badge variant="outline" className="gap-2 px-3 py-1.5">
+                <Star className="w-3 h-3 fill-primary text-primary" />
+                <span>Creador de Froggit — 230+ estrellas en GitHub</span>
+              </Badge>
+            </div>
+          </BlurFade>
+
+          {/* Título principal */}
+          <BlurFade delay={0.3} duration={0.5}>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 leading-[1.1]">
+              Hola, soy{" "}
+              <span className="font-display italic text-primary">{personalData.name}</span>
+            </h1>
+          </BlurFade>
+
+          {/* Subtítulo */}
+          <BlurFade delay={0.45} duration={0.5}>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+              {personalData.holder} enfocado en backend e integración de modelos de IA
+              para automatización de procesos y soluciones escalables.
+            </p>
+          </BlurFade>
+
+          {/* CTA Buttons */}
+          <BlurFade delay={0.6} duration={0.5}>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <Button size="lg" asChild>
+                <a href="#projects">Ver proyectos</a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#contact">Contactar</a>
+              </Button>
+            </div>
+          </BlurFade>
+
+          {/* Social links */}
+          <BlurFade delay={0.75} duration={0.5}>
+            <div className="flex items-center gap-3">
+              <Button variant="outline" size="icon" asChild>
+                <a
+                  href={personalData.contact.social.Github.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon className="w-5 h-5" />
+                </a>
+              </Button>
+              <Button variant="outline" size="icon" asChild>
+                <a
+                  href={personalData.contact.social.Linkedin.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon className="w-5 h-5" />
+                </a>
+              </Button>
+            </div>
+          </BlurFade>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 ${
-          scrolled ? "opacity-0" : "opacity-80"
-        }`}
-      >
-        <div className="w-8 h-12 rounded-full border-2 border-gray-400 flex items-start justify-center p-1">
-          <div className="w-1 h-3 bg-gray-600 rounded-full animate-bounce mt-1"></div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

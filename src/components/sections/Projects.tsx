@@ -1,10 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GithubIcon, Link as LinkIcon } from "lucide-react";
+import { GithubIcon, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import BlurFade from "../ui/blur-fade";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardAction } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface Project {
   image?: string;
@@ -20,91 +21,73 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
-
   return (
     <BlurFade inView={true} delay={1}>
-      <section className="mb-28">
-        <h2 className="text-3xl font-bold mb-8 flex items-center">
-          <span className="text-primary mr-2">🚀</span>
-          <span className="text-neutral-900 dark:text-neutral-100">Proyectos</span>
+      <section id="projects" className="mb-20 md:mb-28">
+        <h2 className="font-display italic text-3xl md:text-4xl font-bold text-foreground mb-8">
+          <span className="text-primary">Mis</span> Proyectos
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className={`overflow-hidden border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 group ${
-                activeProject === index ? "ring-2 ring-primary/50" : ""
-              }`}
-              onMouseEnter={() => setActiveProject(index)}
-              onMouseLeave={() => setActiveProject(null)}
-            >
-              <div className="relative">
+            <Card key={index} className="overflow-hidden">
+              {/* Imagen */}
+              <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg?height=200&width=400"}
                   alt={project.name}
-                  aria-label={project.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105"
+                  width={600}
+                  height={340}
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
 
-              <CardHeader className="relative">
-                <CardTitle className="flex justify-between items-center text-lg">
-                  <span className="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-primary transition-all duration-300">
-                    {project.name}
-                  </span>
-                  <div className="flex gap-2">
-                    {project.github && (
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="rounded-full h-8 w-8"
-                        asChild
-                      >
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Link to GitHub"
-                        >
-                          <GithubIcon className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                    {/* Mostrar link si está disponible y tiene logo */}
-                    {project.link && (
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="rounded-full h-8 w-8"
-                        asChild
-                      >
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Link externo"
-                        >
-                          <LinkIcon className="h-5 w-5 text-primary" />
-                        </a>
-                      </Button>
-                    )}
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle>{project.name}</CardTitle>
+                    <CardDescription>
+                      <Badge variant="secondary" className="mt-2 text-xs">
+                        {project.date}
+                      </Badge>
+                    </CardDescription>
                   </div>
-                </CardTitle>
+                  <CardAction>
+                    <div className="flex gap-1">
+                      {project.github && (
+                        <Button variant="ghost" size="icon" asChild>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver en GitHub"
+                          >
+                            <GithubIcon className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {project.link && (
+                        <Button variant="ghost" size="icon" asChild>
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver proyecto"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  </CardAction>
+                </div>
               </CardHeader>
 
               <CardContent>
-                <p className="text-sm text-primary/70 mb-2">{project.date}</p>
-                <p className="text-neutral-700 dark:text-neutral-300">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-
-                {/* Etiquetas tecnológicas (simuladas) */}
-                <div className="flex flex-wrap gap-2 mt-4"></div>
               </CardContent>
             </Card>
           ))}

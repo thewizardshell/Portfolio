@@ -1,5 +1,11 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
+import BlurFade from "../ui/blur-fade";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -13,10 +19,10 @@ const Contact: React.FC = () => {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch('https://formspree.io/f/mvgqanww', {
-        method: 'POST',
+      const res = await fetch("https://formspree.io/f/mvgqanww", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
         },
         body: data,
       });
@@ -24,64 +30,89 @@ const Contact: React.FC = () => {
         setSubmitted(true);
         form.reset();
       } else {
-        setError('Hubo un error al enviar el formulario. Intenta nuevamente.');
+        setError("Hubo un error al enviar el formulario. Intenta nuevamente.");
       }
     } catch {
-      setError('Hubo un error al enviar el formulario. Intenta nuevamente.');
+      setError("Hubo un error al enviar el formulario. Intenta nuevamente.");
     }
     setLoading(false);
   };
 
   return (
-    <section className="py-12 px-4 flex flex-col items-center bg-white/60 dark:bg-black/60 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-md mt-10 backdrop-blur-md transition-colors">
-      <h2 className="text-3xl font-bold mb-4 text-center text-gray-900 dark:text-white">¿Quieres trabajar conmigo?</h2>
-      <p className="mb-6 text-lg text-gray-700 dark:text-gray-300 text-center max-w-xl">
-        Si buscas servicios web, desarrollo a medida o tienes una idea que quieres llevar a la realidad, ¡contáctame! Completa el formulario y te responderé a la brevedad con una cotización personalizada.
-      </p>
-      {submitted ? (
-        <div className="text-green-400 font-semibold text-center">¡Gracias por tu mensaje! Te responderé pronto.</div>
-      ) : (
-        <form className="w-full max-w-md flex flex-col gap-4" onSubmit={handleSubmit}>
-          {/* Honeypot field para protección contra bots */}
-          <input
-            type="text"
-            name="_gotcha"
-            style={{ display: 'none' }}
-            tabIndex={-1}
-            autoComplete="off"
-          />
-          <input
-            type="text"
-            name="nombre"
-            required
-            placeholder="Nombre"
-            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Correo electrónico"
-            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <textarea
-            name="mensaje"
-            required
-            placeholder="Cuéntame tu idea, requerimientos o dudas..."
-            rows={5}
-            className="px-4 py-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded transition"
-            disabled={loading}
-          >
-            {loading ? 'Enviando...' : 'Solicitar Cotización'}
-          </button>
-          {error && <div className="text-red-400 text-center mt-2">{error}</div>}
-        </form>
-      )}
-    </section>
+    <BlurFade inView={true} delay={1.2}>
+      <section id="contact" className="py-12 md:py-16">
+        <Card className="max-w-xl mx-auto">
+          <CardHeader className="text-center">
+            <CardTitle className="font-display italic text-3xl">
+              <span className="text-primary">Trabajemos</span> juntos
+            </CardTitle>
+            <CardDescription className="text-base">
+              Si tienes un proyecto en mente o necesitas desarrollo web, escríbeme
+              y conversemos.
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            {submitted ? (
+              <div className="p-6 rounded-lg bg-primary/10 text-foreground text-center">
+                Gracias por tu mensaje. Te responderé pronto.
+              </div>
+            ) : (
+              <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="_gotcha"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
+                <div className="space-y-2">
+                  <Label htmlFor="nombre">Nombre</Label>
+                  <Input
+                    id="nombre"
+                    type="text"
+                    name="nombre"
+                    required
+                    placeholder="Tu nombre"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="tu@email.com"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="mensaje">Mensaje</Label>
+                  <Textarea
+                    id="mensaje"
+                    name="mensaje"
+                    required
+                    placeholder="Cuéntame sobre tu proyecto..."
+                    rows={5}
+                  />
+                </div>
+
+                <Button type="submit" disabled={loading} className="w-full">
+                  {loading ? "Enviando..." : "Enviar mensaje"}
+                </Button>
+
+                {error && (
+                  <p className="text-destructive text-sm text-center">{error}</p>
+                )}
+              </form>
+            )}
+          </CardContent>
+        </Card>
+      </section>
+    </BlurFade>
   );
 };
 
