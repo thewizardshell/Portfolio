@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Skills = ({ skills }: { skills: string[] }) => (
-  <BlurFade inView={true} delay={0.4}>
+  <BlurFade inView={true} delay={0.1}>
     <section className="mb-20 md:mb-28">
       <Card>
         <CardHeader>

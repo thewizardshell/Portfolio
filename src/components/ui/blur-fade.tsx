@@ -34,8 +34,8 @@ export default function BlurFade({
   delay = 0,
   yOffset = 6,
   inView = false,
-  inViewMargin = "-50px",
-  blur = "6px",
+  inViewMargin = "-100px",
+  blur = "4px",
 }: BlurFadeProps) {
   const ref = useRef(null);
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
@@ -59,6 +59,7 @@ export default function BlurFade({
           ease: "easeOut",
         }}
         className={className}
+        style={{ willChange: "transform, opacity, filter" }}
       >
         {children}
       </motion.div>

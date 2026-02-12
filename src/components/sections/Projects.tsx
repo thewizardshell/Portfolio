@@ -22,7 +22,7 @@ interface ProjectsProps {
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <BlurFade inView={true} delay={1}>
+    <BlurFade inView={true} delay={0.1}>
       <section id="projects" className="mb-20 md:mb-28">
         <h2 className="font-display italic text-3xl md:text-4xl font-bold text-foreground mb-8">
           <span className="text-primary">Mis</span> Proyectos

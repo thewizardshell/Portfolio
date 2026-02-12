@@ -132,7 +132,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head />
       <body className={`${nunito.variable} ${ptSerif.variable} ${playfair.variable} font-sans theme antialiased`}>
         <div className="texture" />

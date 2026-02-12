@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <BlurFade inView={true} delay={1.2}>
+    <BlurFade inView={true} delay={0.1}>
       <section id="contact" className="py-12 md:py-16">
         <Card className="max-w-xl mx-auto">
           <CardHeader className="text-center">

@@ -18,7 +18,7 @@ interface EducationProps {
 
 const Education: React.FC<EducationProps> = ({ education }) => {
   return (
-    <BlurFade inView={true} delay={0.8}>
+    <BlurFade inView={true} delay={0.1}>
       <section className="mb-20 md:mb-28">
         <h2 className="font-display italic text-3xl md:text-4xl font-bold text-foreground mb-8">
           Educación
