@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon, LinkedinIcon, Star } from "lucide-react";
 import BlurFade from "@/components/ui/blur-fade";
+import { Highlighter } from "@/components/ui/highlighter";
 
 export function RetroGridDemo() {
   const [isHovered, setIsHovered] = useState(false);
@@ -62,14 +63,23 @@ export function RetroGridDemo() {
           <BlurFade delay={0.3} duration={0.5}>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 leading-[1.1]">
               Hola, soy{" "}
-              <span className="font-display italic text-primary">{personalData.name}</span>
+              <Highlighter
+                action="underline"
+                color="#8a9a4e"
+                strokeWidth={3}
+                animationDuration={800}
+                iterations={1}
+                padding={2}
+              >
+                <span className="font-display italic text-primary">{personalData.name}</span>
+              </Highlighter>
             </h1>
           </BlurFade>
 
           {/* Subtítulo */}
           <BlurFade delay={0.45} duration={0.5}>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              {personalData.holder} enfocado en backend e integración de modelos de IA
+              {personalData.holder} con experiencia en integración de modelos de IA
               para automatización de procesos y soluciones escalables.
             </p>
           </BlurFade>
