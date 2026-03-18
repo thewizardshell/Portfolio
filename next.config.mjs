@@ -1,13 +1,16 @@
+import createMDX from "@next/mdx";
+
 /** @type {import('next').NextConfig} */
-/* eslint-disable */
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    domains: ["media.licdn.com"],
+    remotePatterns: [{ hostname: "media.licdn.com" }],
     formats: ["image/avif", "image/webp"],
   },
   compress: true,
   reactStrictMode: true,
-  swcMinify: true,
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);

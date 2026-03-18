@@ -87,8 +87,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourTwitterHandle", // Reemplaza con tu handle de Twitter/X
-    creator: "@yourTwitterHandle",
+    site: "@VicenteRoa6",
+    creator: "@VicenteRoa6",
     title: "Vicente Roa | Desarrollador de Software",
     description:
       "Descubre el portafolio de Vicente Roa, con proyectos en desarrollo web Full Stack.",

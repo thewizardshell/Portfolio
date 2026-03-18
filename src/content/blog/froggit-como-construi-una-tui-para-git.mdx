@@ -1,0 +1,33 @@
+Froggit nació de una postura clara: Git es poderoso, pero su CLI le roba energía a cosas que deberían ser fluidas. Commit, stage, cambiar de rama son operaciones de cada día que se convierten en interrupciones mentales.
+
+La respuesta obvia es agregar capas. Más atajos, más paneles, más configuración. Froggit hace lo opuesto.
+
+## La filosofía que guió cada decisión
+
+**Claridad. Foco. Ligereza.** No como palabras de marketing, como restricciones de diseño reales.
+
+No vas a encontrar cientos de atajos en Froggit porque no está intentando cubrirlo todo. Lazygit lo llama su propio README: "Git TUI for power users". Eso es exactamente lo que Froggit no quiere ser. La herramienta existe para acompañarte en el flujo diario, manejar lo esencial, y desaparecer.
+
+## El stack: Go, Bubbletea, y binarios estáticos
+
+Go no fue una decisión romántica. Produce binarios estáticos: descargas un archivo, lo ejecutas. Sin runtime, sin dependencias, sin `pip install`, sin `cargo build`. Para una herramienta de terminal que quiere llegar a desarrolladores en cualquier sistema, eso importa.
+
+La interfaz se construyó sobre **Bubbletea**, **Lipgloss** y **Bubbles**, las librerías TUI modernas de Charmbracelet que siguen el patrón Elm. El estado de toda la UI vive en un struct, cada tecla genera un mensaje, cada mensaje actualiza el estado. Nada mágico, todo predecible.
+
+## Cómo llegó a 460+ estrellas
+
+El impulso real no fue Reddit, fue **daily.dev**.
+
+El post llegó a 487 upvotes y 57 comentarios. Y no todos fueron positivos. El comentario más votado fue de Loc Truong: *"No thanks, the world doesn't need another Git simplifier. I'm using LazyGit and it's enough for TUI."*
+
+Ese comentario ayudó más que si hubiera estado de acuerdo. La gente entró al repo a ver de qué se trataba. Esa fricción generó curiosidad.
+
+Después vino la cobertura orgánica: LinuxLinks lo reseñó, Terminal Trove lo catalogó, y quedó listado en `rothgar/awesome-tuis`, uno de los repositorios más seguidos para descubrir herramientas de terminal. Ninguna de esas cosas se gestionó. Pasaron solas cuando el proyecto existía y era instalable.
+
+## Lo que me enseñó construir esto
+
+Publicar algo que la gente puede instalar en un comando es diferente a publicar código. Los binarios estáticos de Go fueron parte del crecimiento: eliminaron la fricción de la instalación antes de que el usuario decidiera si valía la pena.
+
+Y la resistencia de la comunidad ("el mundo no necesita otro simplificador de Git") no es un problema. Es una señal de que el proyecto tiene una postura definida. Lo que no genera ninguna reacción es lo que realmente no importa.
+
+El código está en [github.com/thewizardshell/froggit](https://github.com/thewizardshell/froggit).

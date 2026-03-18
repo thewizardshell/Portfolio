@@ -1,0 +1,139 @@
+GitHub Copilot no tiene una API pública. No hay documentación, no hay SDK, no hay endpoints oficiales para terceros. Lo que existe es una extensión de VS Code y gente que decidió mirar adentro.
+
+Eso es lo que hice para integrar generación de commits con IA en Froggit. Y antes de mí, varios otros habían recorrido el mismo camino.
+
+## Cómo se descubrió la API
+
+El primer trabajo serio fue de **[B00TK1D](https://bootk.id/posts/copilot/)** en 2022-2023. El objetivo era `agent.js`, el binario minificado que usa `copilot.vim`. En vez de deobfuscar el JavaScript (que igual era ilegible), creó un proxy MitM en Node: renombró `agent.js` a `agent.orig.js` y puso un script propio en su lugar que logueaba todo el tráfico JSON-RPC bidireccional antes de reenviarlo al original.
+
+Para el tráfico de red intentó Wireshark primero. No funciona con HTTPS. Terminó usando **mitmproxy**, que interceptó las llamadas y reveló el flujo completo.
+
+Más tarde, **[thakkarparth007](https://thakkarparth007.github.io/copilot-explorer/posts/copilot-internals.html)** apuntó directamente a `~/.vscode/extensions/github.copilot-<version>/dist/extension.js` y aplicó transformaciones AST para nombrar y clasificar los módulos internos. Un camino diferente, el mismo descubrimiento. El post llegó a Hacker News y generó una discusión larga sobre las implicaciones de seguridad.
+
+Lo que encontraron fue un sistema de dos fases.
+
+## Las dos fases del auth
+
+**Fase 1:** Intercambiar el token OAuth de larga vida por uno de corta vida.
+
+```
+GET https://api.github.com/copilot_internal/v2/token
+Authorization: Token ghu_xxxxxxxxxxxx
+User-Agent: GithubCopilot/1.155.0
+```
+
+La respuesta es un token estructurado que expira en 30 minutos:
+
+```json
+{
+  "token": "tid=...; exp=1234567890; sku=...",
+  "expires_at": 1234567890,
+  "endpoints": {
+    "api": "https://api.githubcopilot.com"
+  }
+}
+```
+
+**Fase 2:** Usar ese token en la API de chat completions, que es compatible con OpenAI:
+
+```
+POST https://api.githubcopilot.com/chat/completions
+Authorization: Bearer tid=...
+Editor-Version: vscode/1.95.3
+```
+
+El path `copilot_internal` en el primer endpoint es la parte clave. Es una API interna de GitHub, no documentada, descubierta únicamente interceptando tráfico de red.
+
+## De dónde saqué el token sin pedírselo al usuario
+
+El token OAuth de larga vida lo escribe en disco cualquier editor con Copilot instalado. `copilot.vim` lo guarda en `apps.json`, `copilot.lua` en `hosts.json`. Mismo directorio, mismo schema.
+
+**[avante.nvim](https://github.com/yetone/avante.nvim)** ya había implementado exactamente esto. Su archivo [`lua/avante/providers/copilot.lua`](https://github.com/yetone/avante.nvim/blob/main/lua/avante/providers/copilot.lua) lee los tokens así:
+
+```lua
+function H.get_oauth_token()
+  local paths = vim.iter({ "hosts.json", "apps.json" }):fold({}, function(acc, path)
+    local yason = Path:new(config_dir):joinpath("github-copilot", path)
+    if yason:exists() then table.insert(acc, yason) end
+    return acc
+  end)
+
+  for _, yason in ipairs(paths) do
+    local ok, data = pcall(vim.json.decode, yason:read())
+    if ok then
+      for key, val in pairs(data) do
+        if key:match("github.com") and val.oauth_token then
+          return val.oauth_token
+        end
+      end
+    end
+  end
+end
+```
+
+Cuando vi ese código entendí el patrón: no necesitas implementar OAuth, no necesitas ningún flow de autenticación propio. Solo leer un archivo que ya existe en el sistema del usuario.
+
+En Go, lo porté así:
+
+```go
+func LoadAuthToken() (string, error) {
+    configDir := GetConfigDir()
+    for _, file := range []string{"hosts.json", "apps.json"} {
+        path := filepath.Join(configDir, "github-copilot", file)
+        data, err := os.ReadFile(path)
+        if err != nil { continue }
+
+        var hosts map[string]struct {
+            OAuthToken string `json:"oauth_token"`
+        }
+        if json.Unmarshal(data, &hosts) != nil { continue }
+
+        for key, val := range hosts {
+            if strings.HasPrefix(key, "github.com") && val.OAuthToken != "" {
+                return val.OAuthToken, nil
+            }
+        }
+    }
+    return "", fmt.Errorf("copilot token not found")
+}
+```
+
+La lógica es idéntica: itera los dos archivos, busca la key que empiece con `github.com`, extrae `oauth_token`. Lo único diferente es el lenguaje.
+
+## El problema del token que expira
+
+El token de corta vida dura 30 minutos. Si Froggit está abierto más tiempo que eso, el siguiente commit falla.
+
+Para resolverlo sin condiciones de carrera (porque la UI corre en goroutines) implementé doble mutex con `sync.RWMutex`: lectura optimista primero, escritura con verificación antes de renovar.
+
+```go
+func (c *Client) getValidToken() (string, error) {
+    c.mu.RLock()
+    if c.copilotToken != nil && time.Now().Unix() < c.copilotToken.ExpiresAt-300 {
+        token := c.copilotToken.Token
+        c.mu.RUnlock()
+        return token, nil
+    }
+    c.mu.RUnlock()
+    return c.refreshToken()
+}
+```
+
+Los 300 segundos de margen evitan que el token expire justo en medio de una request.
+
+## Los headers que importan
+
+La API de Copilot no acepta cualquier cosa. Hay que hacerse pasar por un cliente conocido:
+
+```
+User-Agent: GithubCopilot/1.155.0
+Editor-Version: vscode/1.95.3
+```
+
+Estos strings imitan versiones específicas de la extensión de VS Code. Si se alejan demasiado de lo que GitHub espera, la request falla. avante.nvim usa headers adicionales como `Copilot-Integration-Id` y `Openai-Intent`. Froggit va con lo mínimo que funciona.
+
+## Si Copilot no está instalado
+
+Froggit llama a `IsAvailable()` al arrancar. Si no encuentra ningún token en disco, la opción AI simplemente no aparece en el Commit View. Sin errores, sin mensajes, sin fricción. El usuario que no tiene Copilot nunca sabe que la feature existe.
+
+El módulo completo está en [`internal/copilot`](https://github.com/thewizardshell/froggit/tree/master/internal/copilot).

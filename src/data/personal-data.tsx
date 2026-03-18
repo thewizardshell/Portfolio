@@ -4,6 +4,7 @@ import {
   GithubIcon,
   LinkedinIcon,
   YoutubeIcon,
+  BookOpen,
 } from "lucide-react";
 
 export const Xicon = () => (
@@ -45,6 +46,7 @@ export const personalData = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/blog", icon: BookOpen, label: "Blog" },
     {
       href: "https://drive.google.com/uc?export=download&id=1eIix-bahGsPuJm3LJsakzdGo10tBd6bd",
       icon: FileText,

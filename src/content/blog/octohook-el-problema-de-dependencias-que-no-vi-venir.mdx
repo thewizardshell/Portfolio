@@ -1,0 +1,84 @@
+Octohook es un proyecto en el que estoy trabajando: un runner de tests inteligente que solo ejecuta los tests afectados por los archivos que cambiaste. La idea es simple, pero llegar a implementarla bien me hizo chocar con un problema que no vi venir.
+
+## El modelo mental con el que empecé
+
+Al principio asumí que la relación entre archivos y tests era directa. Cada servicio tiene su test, si cambias el servicio, corres ese test. N a 1.
+
+```
+user.service.ts → user.service.test.ts
+```
+
+Parecía obvio. Funcionaba en los casos simples. Y ahí estaba el problema.
+
+## El momento en que se rompió el modelo
+
+Los servicios no viven solos. Se importan entre sí, se reusan, se componen. Cuando me senté a pensar en cómo manejar eso, me di cuenta de algo que cambia todo:
+
+- `auth_test.go` importa `user.go`
+- `admin_test.go` también importa `user.go`
+
+Si cambio `user.go` y solo corro `user_test.go`, los tests de auth y admin pueden estar rotos y mi sistema no los ejecuta. La relación no es N:1, es N:N. Un archivo puede afectar muchos tests, y un test puede depender de muchos archivos.
+
+Ese cambio de perspectiva me obligó a replantear todo.
+
+## El primer instinto: grep
+
+Lo primero que pensé fue: busco con grep qué archivos importan `user.go`, los marco como afectados, y listo. Funciona para proyectos chicos. Pero en un proyecto con cientos de archivos, revisar todo el árbol con cada cambio es caro. Y tampoco captura dependencias transitivas: si `auth.go` importa `user.go` y `permission.go` importa `auth.go`, un cambio en `user.go` debería llegar hasta los tests de permissions. El grep no llegaría tan lejos.
+
+## Grafos, algo que nunca había aplicado así
+
+Discutiendo el problema con una IA, la respuesta fue directa: esto es un problema de grafos. Hay que mapear qué archivos dependen de cuáles y recorrer esa red.
+
+Yo venía de ver árboles, Dijkstra y listas en la universidad, pero nunca había aplicado BFS a algo concreto. La idea es que cada archivo es un nodo, y la arista es "este archivo es usado por este otro". Si construyes ese grafo en dirección inversa (quién depende de mí, no a quién dependo yo), puedes partir desde el archivo que cambió y llegar a todos los tests que se ven afectados, incluso los que no lo importan directamente.
+
+Mentalmente lo vi así:
+
+```
+user.go → auth.go → auth_test.go
+user.go → admin.go → admin_test.go
+```
+
+Un cambio en `user.go` tiene que propagar a cuatro nodos.
+
+## La implementación
+
+El algoritmo es una cola simple. Partes del archivo modificado, encolas sus dependientes, marcas los visitados para no procesarlos dos veces, y sigues hasta que la cola se vacíe. Lo que queda son todos los archivos afectados, directa e indirectamente.
+
+```go
+func (g *Graph) FindAffected(file string) []string {
+    queue := []string{file}
+    visited := make(map[string]bool)
+    affected := []string{}
+
+    for len(queue) > 0 {
+        current := queue[0]
+        queue = queue[1:]
+
+        if visited[current] {
+            continue
+        }
+        visited[current] = true
+
+        for _, dep := range g.reverse[current] {
+            affected = append(affected, dep)
+            queue = append(queue, dep)
+        }
+    }
+
+    return affected
+}
+```
+
+De esa lista final filtras solo los archivos que son tests, y esos son los que ejecutas.
+
+## Construir el grafo sin volverse loco
+
+Para poblar el grafo hay que parsear los imports de cada archivo. Evaluué usar Tree-sitter, que es la opción más correcta técnicamente, pero el setup es pesado y multiplica el trabajo si quieres soportar varios lenguajes. Por ahora, una regex que detecta los patrones de import de Go, TypeScript y JavaScript es suficiente. El costo es que si un import está comentado puede dar un falso positivo, pero es un trade-off aceptable para esta etapa.
+
+Lo otro que decidí fue no construir el grafo en cada ejecución. Lo construyo una vez, lo guardo en `.octohook/graph.json`, y solo lo reconstruyo cuando hay cambios en los archivos. Si el hash de un test y sus dependencias no cambiaron, ni siquiera lo ejecuto.
+
+## Lo que aprendí
+
+El problema interesante no fue el algoritmo. Fue darme cuenta de que el modelo mental con el que empecé era incorrecto, y que esa incorrección no aparece hasta que el proyecto crece un poco.
+
+Octohook todavía está en construcción. Pero este problema en particular ya está resuelto, y me parece de los más interesantes que he tenido que pensar desde cero.
