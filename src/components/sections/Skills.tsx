@@ -6,20 +6,20 @@ import {
   SiNextdotjs,
   SiAngular,
   SiNestjs,
-  SiAmazonaws,
   SiPostgresql,
   SiMongodb,
   SiTypescript,
   SiGo,
   SiPython,
 } from "react-icons/si";
+import { Cloud } from "lucide-react";
 
 const skillIcons: Record<string, ComponentType<{ className?: string }>> = {
   "React.js": SiReact,
   "Next.js": SiNextdotjs,
   Angular: SiAngular,
   "Nest.js": SiNestjs,
-  AWS: SiAmazonaws,
+  AWS: Cloud,
   PostgreSQL: SiPostgresql,
   MongoDB: SiMongodb,
   TypeScript: SiTypescript,

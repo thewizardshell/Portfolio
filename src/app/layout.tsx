@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Nunito, PT_Serif, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
@@ -23,7 +23,14 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vctroa.cl"),
   title: {
     default: "Vicente Roa | Desarrollador de Software",
     template: "%s | Vicente Roa Portfolio",
@@ -51,11 +58,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Vicente Roa Carreño", url: "https://vctroa.cl" }],
   creator: "Vicente Roa Carreño",
   publisher: "Vicente Roa Carreño",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
