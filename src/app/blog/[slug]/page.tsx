@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="text-sm text-muted-foreground">
               Escrito por{" "}
               <span className="text-foreground font-medium">Vicente Roa</span> —
-              Desarrollador de Software en Chile.{" "}
+              Tech Lead en Chile.{" "}
               <Link
                 href="https://www.linkedin.com/in/vctroa/"
                 target="_blank"

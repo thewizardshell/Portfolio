@@ -14,6 +14,8 @@ interface Project {
   link?: string;
   date: string;
   description: string;
+  companyLogo?: string;
+  companyName?: string;
 }
 
 interface ProjectsProps {
@@ -46,7 +48,19 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle>{project.name}</CardTitle>
+                    <div className="flex items-center gap-2">
+                      <CardTitle>{project.name}</CardTitle>
+                      {project.companyLogo && (
+                        <Image
+                          src={project.companyLogo}
+                          alt={project.companyName || ""}
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 rounded-sm object-cover border"
+                          title={project.companyName}
+                        />
+                      )}
+                    </div>
                     <CardDescription>
                       <Badge variant="secondary" className="mt-2 text-xs">
                         {project.date}

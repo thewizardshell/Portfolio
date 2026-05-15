@@ -27,8 +27,8 @@ const AboutMe = () => (
       <Card>
         <CardContent className="pt-6 space-y-6">
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-            Desarrollador de software con experiencia en integración de modelos
-            de IA para automatización y optimización de procesos. Trabajo
+            Tech Lead con experiencia en liderazgo técnico e integración de
+            modelos de IA para automatización y optimización de procesos. Trabajo
             principalmente con NestJS, Next.js y servicios AWS. En mi día a día
             uso{" "}
             <span className="inline-flex items-center gap-1 text-foreground font-semibold">

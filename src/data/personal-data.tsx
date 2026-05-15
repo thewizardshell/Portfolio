@@ -28,9 +28,9 @@ export const personalData = {
   name: "Vicente Roa",
   initals: "VR",
   location: "Chile",
-  holder: "Desarrollador de Software",
+  holder: "Tech Lead",
   about:
-    "Desarrollador de software chileno con experiencia en aplicaciones web modernas, APIs robustas y soluciones escalables. Especialista en React, NextJS y NestJS, enfocado en arquitectura limpia, buenas prácticas y productividad. Líder de proyectos open source como Froggit (+230 ⭐ en GitHub), colaborador en equipos multidisciplinarios y con experiencia en proyectos freelance para clientes de distintos rubros. Apasionado por la innovación, la automatización y la creación de sistemas eficientes y fáciles de mantener. Comprometido con la calidad, el aprendizaje continuo y el desarrollo de soluciones digitales que generan impacto real.",
+    "Tech Lead chileno enfocado en que las cosas se construyan bien. Actúo como referente técnico del equipo: reviso código, oriento decisiones de arquitectura y ayudo a que los desarrolladores avancen en la dirección correcta. Especialista en React, NextJS y NestJS, con experiencia en aplicaciones web modernas, APIs robustas y soluciones escalables con servicios AWS. Líder de proyectos open source como Froggit (+230 ⭐ en GitHub) y con experiencia en proyectos freelance para distintos rubros. Me apasiona construir sistemas que duren, tomar buenas decisiones técnicas y seguir aprendiendo en el proceso.",
   avatarUrl: "/images/avatar.png",
   skills: [
     "React.js",
@@ -81,9 +81,18 @@ export const personalData = {
   },
   workExperience: [
     {
+      title: "Tech Lead",
+      company: "Romero & Asociados",
+      date: "abr. 2026 - actualidad",
+      location: "Las Condes, Región Metropolitana de Santiago, Chile",
+      description:
+        "Referente técnico del equipo de desarrollo. Me aseguro de que las decisiones de arquitectura y el código vayan en la dirección correcta, reviso implementaciones y oriento a los desarrolladores cuando necesitan guía técnica. Actúo como puente entre el equipo y gerencia en todo lo que involucra criterio técnico.",
+      image: "/romero.jpg",
+    },
+    {
       title: "Desarrollador de Software",
       company: "Romero & Asociados",
-      date: "abr. 2025 - actualidad",
+      date: "abr. 2025 - abr. 2026",
       location: "Las Condes, Región Metropolitana de Santiago, Chile",
       description:
         "Desarrollo de aplicación web interna que automatiza el análisis de procesos legales. La plataforma procesa documentos PDF cargados por abogados, extrayendo información legal mediante AWS Bedrock. Implementé sistema de alertas con Server-Sent Events y validación inteligente de archivos usando Model Context Protocol (MCP) con FastMCP y LangChain. Trabajo con servicios AWS (S3, Textract, Bedrock), APIs REST con NestJS, interfaces React con Redux Toolkit, y metodología Scrum en Jira.",
@@ -136,6 +145,16 @@ export const personalData = {
     },
   ],
   projects: [
+    {
+      name: "Alfred",
+      date: "abr. 2025 - actualidad",
+      description:
+        "Landing page de Alfred, el asistente de IA para el derecho chileno desarrollado en Romero & Asociados. Comunica las capacidades del producto: análisis de escrituras, extracción de facultades, alzamientos y posesiones efectivas. Desarrollada junto al equipo en diseño, ideas y dirección del producto.",
+      link: "https://soyalfred.cl",
+      image: "/Alfred.png",
+      companyLogo: "/romero.jpg",
+      companyName: "Romero & Asociados",
+    },
     {
       name: "Froggit",
       date: "Jun 2025 - Actualidad",

@@ -12,8 +12,8 @@ export function WaveDivider({ className = "", flip = false }: WaveDividerProps) 
         preserveAspectRatio="none"
         viewBox="0 0 1200 120"
         xmlns="http://www.w3.org/2000/svg"
+        className="fill-[#331e00] dark:fill-white"
         style={{
-          fill: "#331e00",
           width: flip ? "100%" : "131%",
           height: flip ? 67 : 60,
           transform: flip ? "rotate(180deg)" : undefined,

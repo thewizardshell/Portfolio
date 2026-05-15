@@ -36,15 +36,16 @@ export const metadata: Metadata = {
     template: "%s | Vicente Roa Portfolio",
   },
   description:
-    "Portafolio de Vicente Roa, desarrollador de software especializado en desarrollo web moderno, con proyectos en React, Next.js, JavaScript y TypeScript.",
+    "Portafolio de Vicente Roa, Tech Lead especializado en desarrollo web moderno, arquitectura de software y liderazgo técnico, con proyectos en React, Next.js, NestJS y AWS.",
   keywords: [
     "Vicente Roa Carreño",
     "Vicente Roa Chile",
     "desarrollador Full Stack",
     "desarrollador de software",
+    "Tech Lead Chile",
     "Vicente Roa Desarrollo Web",
     "Vicente Roa Desarrollador Web",
-    "Vicente Roa Desarrollador de Software",
+    "Vicente Roa Tech Lead",
     "desarrollo web",
     "ingeniero de software",
     "portafolio",
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
     url: "https://vctroa.cl",
     title: "Vicente Roa | Desarrollador de Software",
     description:
-      "Portafolio de Vicente Roa, desarrollador de software especializado en desarrollo web moderno, con proyectos en React, Next.js, JavaScript y TypeScript.",
+      "Portafolio de Vicente Roa, Tech Lead y desarrollador de software especializado en desarrollo web moderno, arquitectura de software y liderazgo técnico, con proyectos en React, Next.js, NestJS y AWS.",
     images: [
       {
         url: "https://vctroa.cl/vctroa_wp.jpg",
@@ -93,7 +94,7 @@ export const metadata: Metadata = {
     creator: "@VicenteRoa6",
     title: "Vicente Roa | Desarrollador de Software",
     description:
-      "Descubre el portafolio de Vicente Roa, con proyectos en desarrollo web Full Stack.",
+      "Descubre el portafolio de Vicente Roa, Tech Lead con proyectos en desarrollo web, arquitectura de software y liderazgo técnico.",
     images: [
       {
         url: "https://vctroa.cl/vctroa_wp.jpg",
