@@ -146,6 +146,27 @@ export const personalData = {
   ],
   projects: [
     {
+      name: "Nexolit",
+      date: "oct. 2026 - actualidad",
+      description: `Nexolit es una oficina virtual 2D para equipos remotos, en el navegador. Cada persona tiene un avatar personalizable, se mueve por el mapa y habla con quien tiene cerca gracias al audio por proximidad. Incluye salas privadas, pantalla compartida, pizarra, zonas de foco y un editor de mapas. Como estar en la oficina, sin estar en la oficina.`,
+      link: "https://nexolit.cl",
+      image: "/nexolit_port.webp",
+    },
+    {
+      name: "PlayDitto",
+      date: "abr. 2026 - actualidad",
+      description: `PlayDitto es una plataforma de estadísticas competitivas de Pokémon VGC con datos de Smogon siempre actualizados. Muestra el uso de cada Pokémon, sus movimientos, objetos, EV spreads y compañeros de equipo, además de un dashboard con la evolución del meta desde 2017 y un teambuilder con análisis por IA.`,
+      link: "https://playditto.com/",
+      image: "/playditto_port.webp",
+    },
+    {
+      name: "Book of Souls",
+      date: "nov. 2026 - actualidad",
+      description: `Book of Souls (Libro de Almas) es un sitio de estadísticas de Deadlock calculadas sobre partidas reales del parche actual. Muestra el meta con tier list y winrates por rango, páginas de cada héroe con builds, habilidades y enfrentamientos, un catálogo de items, el perfil de cualquier jugador con sus últimas partidas y el detalle de cada partida. En español e inglés, con datos de deadlock-api.com.`,
+      link: "https://bookofsouls.vercel.app/",
+      image: "/bookofsouls_port.webp",
+    },
+    {
       name: "Alfred",
       date: "abr. 2025 - actualidad",
       description:
@@ -162,6 +183,20 @@ export const personalData = {
       github: "https://github.com/thewizardshell/froggit",
       link: "https://froggit-docs.vercel.app/",
       image: "/froggit_port.webp",
+    },
+    {
+      name: "Songs of Sheikah",
+      date: "nov. 2026",
+      description: `Guía interactiva de todas las canciones de ocarina de Zelda: Ocarina of Time. Cada canción se escucha con el ritmo exacto del juego y muestra sus botones en N64, 3DS y el remake de Switch 2. Incluye una grabadora para componer tu Canción del Espantapájaros tocando la ocarina con el teclado. Hecha con Astro, en inglés, español y japonés, instalable como PWA.`,
+      link: "https://songs-of-sheikah.vercel.app/",
+      image: "/songs-of-sheikah_port.webp",
+    },
+    {
+      name: "Songs of Kishin",
+      date: "nov. 2026",
+      description: `Guía interactiva de todas las canciones de ocarina de Zelda: Majora's Mask, con sus notas, el ritmo exacto del juego, dónde se aprende cada una y con qué formas de Link se puede tocar. Incluye una grabadora para componer tu Canción del Espantapájaros tocando la ocarina con el teclado. Hecha con Astro, en inglés, español y japonés, instalable como PWA.`,
+      link: "https://songs-of-kishin.vercel.app/",
+      image: "/songs-of-kishin_port.webp",
     },
     {
       name: "Mascotag",
